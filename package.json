@@ -1,0 +1,41 @@
+{
+  "name": "@springtype/st-node-resolve",
+  "version": "1.0.0",
+  "keywords": [
+    "node",
+    "module",
+    "file",
+    "include",
+    "require",
+    "import",
+    "dependency",
+    "resolve",
+    "resolver"
+  ],
+  "description": "SpringType node module dependency resolution implementation. Used by SpringType Bundler/Compiler.",
+  "scripts": {
+    "clean": "npx st-rm-rf dist",
+    "build": "tsc && cp package.json dist && cp -r node_modules dist",
+    "test": "jest --verbose",
+    "prerelease": "yarn build",
+    "release": "npm login",
+    "postrelease": "npm publish"
+  },
+  "author": "Aron Homberg <info@aron-homberg.de>",
+  "license": "MIT",
+  "bundledDependencies": [
+      "enhanced-resolve"
+  ],
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.7.12",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.4.1",
+    "tslib": "^1.10.0",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "enhanced-resolve": "^4.1.1"
+  }
+}
