@@ -1,6 +1,9 @@
 {
   "name": "@springtype/st-node-resolve",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "node",
     "module",
