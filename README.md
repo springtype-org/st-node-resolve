@@ -1,6 +1,6 @@
 # st-node-resolve
 
-> Resolves dependencies in JavaScript/TypeScript projects. Useful for bundlers and compilers.
+> Resolves dependencies in JavaScript/TypeScript projects. Useful for bundlers and compilers. Based on `enhanced-resolve`.
 
 st-node-resolve detects which module file is the entry file to resolve to for any type of `require(...)`
 `import(...)` and `import ... from "..."` imports (basically what Node.js does internally).
@@ -10,15 +10,13 @@ organization module imports well.
 
 ## Usage
 
-    import { resolveModule } from "@springtype/st-node-resolve";
+    import { resolve } from "@springtype/st-node-resolve";
 
-    // module ./e2e/submodule/some-import.ts imports core-js/es/array
-    // which is the module file to import? Right now we don't know if core-js/es/array is a node module, a file, a folder etc.
-    const moduleFile = resolveModule('core-js/es/array', './__e2e__/submodule/some-import.ts');
+    const moduleFile = await resolve(
+        '@webcomponents/custom-elements/src/native-shim', './__test__/fixture/submodule/some-import.ts'
+    );
 
-    // st-node-resolve resolves to a path like:
-    // __e2e__/node_modules/core-js/es/array/index.js
-    console.log('moduleFile', moduleFile);
+    // -> ./__test__/fixture/submodule/node_modules/@webcomponents/custom-elements/src/native-shim.js
 
 ## Test
 
